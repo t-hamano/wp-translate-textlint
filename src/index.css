@@ -1,0 +1,61 @@
+/* Common */
+* {
+	box-sizing: border-box;
+	text-size-adjust: 100%;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #32373c;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 1200px;
+	padding: 0 16px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+}
+
+.header {
+	padding: 16px;
+	margin-bottom: 80px;
+	color: #fff;
+	text-align: center;
+	background: #0073aa;
+}
+
+.header h1 {
+	margin: 0;
+	font-size: 2em;
+}
+
+.header a {
+	color: #fff;
+}
+
+.editor {
+	flex: 1;
+	padding: 1em;
+	border: 3px solid #333;
+}
+
+.textlint-error {
+	width: 300px;
+	padding: 1em;
+	border: 3px solid #333;
+}
