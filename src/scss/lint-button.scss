@@ -1,0 +1,19 @@
+.lint-button {
+	display: block;
+	padding: 1em 2em;
+	margin: 0 auto;
+	font-family: inherit;
+	font-size: 1.2em;
+	color: #fff;
+	cursor: pointer;
+	background: #0073aa;
+	border: none;
+	border-radius: 4px;
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}

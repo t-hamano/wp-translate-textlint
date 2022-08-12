@@ -8,7 +8,11 @@
     "build": "react-scripts build"
   },
   "dependencies": {
+    "@types/react-codemirror": "^1.0.7",
+    "@uiw/react-codemirror": "^4.11.4",
+    "codemirror": "^6.0.1",
     "react": "^18.2.0",
+    "react-codemirror2": "^7.2.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
   },
@@ -18,6 +22,7 @@
     "@wordpress/eslint-plugin": "^12.9.0",
     "@wordpress/stylelint-config": "^20.0.2",
     "prettier": "npm:wp-prettier@2.6.2-beta-1",
+    "sass": "^1.54.4",
     "stylelint": "^14.10.0",
     "stylelint-config-recess-order": "^3.0.0",
     "typescript": "^4.7.4"

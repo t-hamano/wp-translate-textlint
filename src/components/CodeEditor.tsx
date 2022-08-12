@@ -1,5 +1,12 @@
+import * as React from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+
 const CodeEditor = () => {
-	return <div className="editor">CodeEditor</div>;
+	return (
+		<div className="code-editor">
+			<CodeMirror value="Test" />
+		</div>
+	);
 };
 
 export default CodeEditor;

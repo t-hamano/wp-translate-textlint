@@ -12,9 +12,10 @@
 body {
 	margin: 0;
 	font-family: "Open Sans", sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5;
 	color: #32373c;
+	background: #eee;
 }
 
 a:hover {
@@ -29,6 +30,7 @@ a:hover {
 
 .row {
 	display: flex;
+	margin-bottom: 32px;
 }
 
 .header {
@@ -48,14 +50,3 @@ a:hover {
 	color: #fff;
 }
 
-.editor {
-	flex: 1;
-	padding: 1em;
-	border: 3px solid #333;
-}
-
-.textlint-error {
-	width: 300px;
-	padding: 1em;
-	border: 3px solid #333;
-}
