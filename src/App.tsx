@@ -28,7 +28,7 @@ const App = () => {
 					<Box sx={ { flex: 1 } }>
 						<CodeEditor />
 					</Box>
-					<Box sx={ { width: 300 } }>
+					<Box sx={ { width: 300, ml: 3 } }>
 						<TextLintError />
 					</Box>
 				</Box>

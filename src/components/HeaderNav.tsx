@@ -2,14 +2,14 @@
  * External dependencies
  */
 import { useState } from 'react';
-import { IconButton, Link, Modal, Stack, Tooltip, Typography } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { Button, Link, Modal, Stack, Typography } from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 /**
  * Internal dependencies
  */
 import { githubRepoUrl } from '../constants';
+import packageJson from '../../package.json';
 
 const modalStyle = ( theme: any ) => ( {
 	position: 'absolute',
@@ -32,19 +32,19 @@ const HeaderNav = () => {
 
 	return (
 		<>
-			<Stack direction="row" spacing={ 2 }>
-				<Tooltip title="ヘルプ">
-					<IconButton sx={ { color: '#fff' } } onClick={ handleHelpOpen }>
-						<HelpOutlineIcon fontSize="large" />
-					</IconButton>
-				</Tooltip>
-				<Tooltip title="GitHubリポジトリを見る">
-					<Link href={ githubRepoUrl } target="_blank">
-						<IconButton sx={ { color: '#fff' } }>
-							<GitHubIcon fontSize="large" />
-						</IconButton>
-					</Link>
-				</Tooltip>
+			<Stack direction="row" alignItems="center" spacing={ 2 }>
+				<Button color="inherit" onClick={ handleHelpOpen }>
+					HELP
+				</Button>
+				<Link color="inherit" underline="none" href={ githubRepoUrl } target="_blank">
+					<Button color="inherit">
+						GitHuB
+						<OpenInNewIcon sx={ { ml: 1 } } />
+					</Button>
+				</Link>
+				{ packageJson.version && (
+					<Typography variant="caption">{ `version: ${ packageJson.version }` }</Typography>
+				) }
 			</Stack>
 			<Modal
 				open={ isHelpOpen }
