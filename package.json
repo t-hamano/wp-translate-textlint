@@ -5,21 +5,29 @@
   "license": "GPL-2.0+",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@codemirror/lang-markdown": "^6.0.1",
+    "@codemirror/language-data": "^6.1.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.0",
+    "@textlint/kernel": "^12.2.1",
     "@uiw/react-codemirror": "^4.11.4",
-    "codemirror": "^6.0.1",
+    "assert": "^2.0.0",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-codemirror2": "^7.2.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "textlint-message-to-codemirror": "^1.0.0",
+    "textlint-plugin-markdown": "^4.0.6"
   },
   "devDependencies": {
+    "@types/codemirror": "^5.60.5",
     "@types/react": "^18.0.17",
     "@types/react-codemirror": "^1.0.7",
     "@types/react-dom": "^18.0.6",

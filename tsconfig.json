@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"strict": true,
-		"jsx": "preserve",
+    "target": "es5",
+    "jsx": "react-jsx",
 		"lib": [ "dom", "esnext" ],
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
