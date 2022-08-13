@@ -33,18 +33,6 @@ module.exports = {
 				test: /\.scss$/,
 				use: [ 'style-loader', 'css-loader', 'sass-loader' ],
 			},
-			{
-				test: /node_modules\/vfile\/core\.js/,
-				use: [
-					{
-						loader: 'imports-loader',
-						options: {
-							type: 'commonjs',
-							imports: [ 'single process/browser process' ],
-						},
-					},
-				],
-			},
 		],
 	},
 	resolve: {
