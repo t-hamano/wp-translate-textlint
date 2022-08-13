@@ -28,3 +28,35 @@ export const themeOptions: ThemeOptions = {
 		},
 	},
 } as const;
+
+export const textlintOptions = {
+	ext: '.md',
+	plugins: [
+		{
+			pluginId: 'markdown',
+			plugin: require( 'textlint-plugin-markdown' ),
+		},
+	],
+	rules: [
+		{
+			ruleId: 'no-todo',
+			rule: require( 'textlint-rule-no-todo' ).default,
+		},
+		{
+			ruleId: 'no-todo',
+			rule: require( 'textlint-rule-no-todo' ).default,
+		},
+		{
+			ruleId: 'ja-space-between-half-and-full-width',
+			rule: require( 'textlint-rule-ja-space-between-half-and-full-width' ),
+		},
+		{
+			ruleId: 'max-kanji-continuous-len',
+			rule: require( 'textlint-rule-max-kanji-continuous-len' ),
+		},
+		{
+			ruleId: 'no-mixed-zenkaku-and-hankaku-alphabet',
+			rule: require( 'textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet' ),
+		},
+	],
+};

@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react';
 /**
  * External dependencies
  */
@@ -13,7 +14,19 @@ import CodeEditor from './components/CodeEditor';
 import TextLintError from './components/TextLintError';
 import LintButton from './components/LintButton';
 
+const code = `## Title
+TODO: todo
+WordPress開発環境開発環境開発環境開発環境あAaＢあああWordPressああああ(ああああ)ああああ
+`;
+
+export const TextLintContext = createContext< any >( {
+	code,
+	lintError: [],
+	setLintError: () => undefined,
+} );
+
 const App = () => {
+	const [ lintError, setLintError ] = useState( [] );
 	const theme = createTheme( themeOptions );
 	// const test = createTheme();
 	// console.log( test );
@@ -23,17 +36,19 @@ const App = () => {
 			<Box mb={ 6 }>
 				<Header />
 			</Box>
-			<Container maxWidth="xl">
-				<Box display="flex" mb={ 3 } alignItems="flex-start">
-					<Box sx={ { flex: 1 } }>
-						<CodeEditor />
+			<TextLintContext.Provider value={ { code, lintError, setLintError } }>
+				<Container maxWidth="xl">
+					<Box display="flex" mb={ 3 } alignItems="flex-start">
+						<Box sx={ { flex: 1 } }>
+							<CodeEditor />
+						</Box>
+						<Box sx={ { width: 300, ml: 3 } }>
+							<TextLintError />
+						</Box>
 					</Box>
-					<Box sx={ { width: 300, ml: 3 } }>
-						<TextLintError />
-					</Box>
-				</Box>
-				<LintButton />
-			</Container>
+					<LintButton />
+				</Container>
+			</TextLintContext.Provider>
 		</ThemeProvider>
 	);
 };
