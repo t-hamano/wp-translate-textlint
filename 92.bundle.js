@@ -1,0 +1,15 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[92],{
+
+/***/ "./node_modules/@codemirror/legacy-modes/mode/toml.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@codemirror/legacy-modes/mode/toml.js ***!
+  \************************************************************/
+/*! exports provided: toml */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toml\", function() { return toml; });\nconst toml = {\n  startState: function () {\n    return {\n      inString: false,\n      stringType: \"\",\n      lhs: true,\n      inArray: 0\n    };\n  },\n  token: function (stream, state) {\n    //check for state changes\n    if (!state.inString && ((stream.peek() == '\"') || (stream.peek() == \"'\"))) {\n      state.stringType = stream.peek();\n      stream.next(); // Skip quote\n      state.inString = true; // Update state\n    }\n    if (stream.sol() && state.inArray === 0) {\n      state.lhs = true;\n    }\n    //return state\n    if (state.inString) {\n      while (state.inString && !stream.eol()) {\n        if (stream.peek() === state.stringType) {\n          stream.next(); // Skip quote\n          state.inString = false; // Clear flag\n        } else if (stream.peek() === '\\\\') {\n          stream.next();\n          stream.next();\n        } else {\n          stream.match(/^.[^\\\\\\\"\\']*/);\n        }\n      }\n      return state.lhs ? \"property\" : \"string\"; // Token style\n    } else if (state.inArray && stream.peek() === ']') {\n      stream.next();\n      state.inArray--;\n      return 'bracket';\n    } else if (state.lhs && stream.peek() === '[' && stream.skipTo(']')) {\n      stream.next();//skip closing ]\n      // array of objects has an extra open & close []\n      if (stream.peek() === ']') stream.next();\n      return \"atom\";\n    } else if (stream.peek() === \"#\") {\n      stream.skipToEnd();\n      return \"comment\";\n    } else if (stream.eatSpace()) {\n      return null;\n    } else if (state.lhs && stream.eatWhile(function (c) { return c != '=' && c != ' '; })) {\n      return \"property\";\n    } else if (state.lhs && stream.peek() === \"=\") {\n      stream.next();\n      state.lhs = false;\n      return null;\n    } else if (!state.lhs && stream.match(/^\\d\\d\\d\\d[\\d\\-\\:\\.T]*Z/)) {\n      return 'atom'; //date\n    } else if (!state.lhs && (stream.match('true') || stream.match('false'))) {\n      return 'atom';\n    } else if (!state.lhs && stream.peek() === '[') {\n      state.inArray++;\n      stream.next();\n      return 'bracket';\n    } else if (!state.lhs && stream.match(/^\\-?\\d+(?:\\.\\d+)?/)) {\n      return 'number';\n    } else if (!stream.eatSpace()) {\n      stream.next();\n    }\n    return null;\n  },\n  languageData: {\n    commentTokens: { line: '#' },\n  },\n};\n\n\n//# sourceURL=webpack:///./node_modules/@codemirror/legacy-modes/mode/toml.js?");
+
+/***/ })
+
+}]);
