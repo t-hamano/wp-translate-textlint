@@ -1,9 +1,22 @@
 /**
  * External dependencies
  */
+// import { TextlintKernel } from '@textlint/kernel';
 import CodeMirror from '@uiw/react-codemirror';
-import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-import { languages } from '@codemirror/language-data';
+// import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+// import { languages } from '@codemirror/language-data';
+
+// const textlintKernel = new TextlintKernel();
+
+// const options = {
+// 	ext: '.md',
+// 	plugins: [
+// 		{
+// 			pluginId: 'markdown',
+// 			plugin: require( 'textlint-plugin-markdown' ),
+// 		},
+// 	],
+// };
 
 const code = `## Title
 
@@ -31,11 +44,13 @@ func main() {
 `;
 
 const CodeEditor = () => {
+	// textlintKernel.lintText( 'TODO: text', options ).then( () => {} );
+
 	return (
 		<div className="code-editor">
 			<CodeMirror
 				value={ code }
-				extensions={ [ markdown( { base: markdownLanguage, codeLanguages: languages } ) ] }
+				// extensions={ [ markdown( { base: markdownLanguage, codeLanguages: languages } ) ] }
 			/>
 		</div>
 	);
