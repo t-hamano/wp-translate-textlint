@@ -11,17 +11,23 @@ import { Stack, Alert, Card } from '@mui/material';
 import { TextLintContext } from '../App';
 
 const TextLintError = () => {
-	const { lintError } = useContext( TextLintContext );
+	const { code, lintError } = useContext( TextLintContext );
 
 	return (
 		<Stack spacing={ 2 }>
-			{ lintError.length > 0 ? (
+			{ ! code && (
+				<Card>
+					<Alert severity="error">文章を入力して下さい。</Alert>
+				</Card>
+			) }
+			{ code &&
+				lintError.length > 0 &&
 				lintError.map( ( error: any, index: number ) => (
 					<Card key={ index }>
 						<Alert severity="error">{ error.message }</Alert>
 					</Card>
-				) )
-			) : (
+				) ) }
+			{ code && lintError.length === 0 && (
 				<Card>
 					<Alert severity="success">エラーはありません。</Alert>
 				</Card>
