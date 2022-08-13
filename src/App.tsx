@@ -23,7 +23,7 @@ const App = () => {
 			<Box mb={ 6 }>
 				<Header />
 			</Box>
-			<Container maxWidth="lg">
+			<Container maxWidth="xl">
 				<Box display="flex" mb={ 3 } alignItems="flex-start">
 					<Box sx={ { flex: 1 } }>
 						<CodeEditor />

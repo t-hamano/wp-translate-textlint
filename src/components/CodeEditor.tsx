@@ -3,8 +3,8 @@
  */
 // import { TextlintKernel } from '@textlint/kernel';
 import CodeMirror from '@uiw/react-codemirror';
-// import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-// import { languages } from '@codemirror/language-data';
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { languages } from '@codemirror/language-data';
 
 // const textlintKernel = new TextlintKernel();
 
@@ -50,7 +50,7 @@ const CodeEditor = () => {
 		<div className="code-editor">
 			<CodeMirror
 				value={ code }
-				// extensions={ [ markdown( { base: markdownLanguage, codeLanguages: languages } ) ] }
+				extensions={ [ markdown( { base: markdownLanguage, codeLanguages: languages } ) ] }
 			/>
 		</div>
 	);
