@@ -34,7 +34,7 @@ const App = () => {
 			</Box>
 			<TextLintContext.Provider value={ { code, setCode, lintError, setLintError } }>
 				<Container maxWidth="xl">
-					<Box display="flex" mb={ 3 } alignItems="flex-start">
+					<Box display="flex" mb={ 6 } alignItems="flex-start">
 						<Box sx={ { flex: 1 } }>
 							<CodeEditor />
 						</Box>
