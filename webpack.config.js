@@ -39,9 +39,7 @@ module.exports = {
 		extensions: [ '.ts', '.tsx', '.js', '.json' ],
 	},
 	plugins: [
-		// new copyWebpackPlugin( {
-		// 	patterns: [ { from: 'public', to: '.' } ],
-		// } ),
+		new copyWebpackPlugin( [ { from: 'public', to: '.' } ] ),
 		new webpack.DefinePlugin( {
 			'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV ),
 		} ),

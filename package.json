@@ -45,7 +45,7 @@
 		"@wordpress/stylelint-config": "^20.0.2",
 		"assert": "^2.0.0",
 		"babel-loader": "^8.2.5",
-		"copy-webpack-plugin": "^11.0.0",
+		"copy-webpack-plugin": "^5.1.2",
 		"cross-env": "^7.0.3",
 		"css-loader": "^5.2.6",
 		"eslint": "^8.21.0",
