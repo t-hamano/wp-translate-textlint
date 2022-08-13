@@ -18,6 +18,7 @@ const LintButton = () => {
 	const { code, setLintError } = useContext( TextLintContext );
 
 	const handleOnClick = () => {
+		if ( ! code ) return;
 		textlintKernel.lintText( code, textlintOptions ).then( ( result ) => {
 			setLintError( result.messages );
 		} );

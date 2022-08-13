@@ -13,10 +13,14 @@ import { languages } from '@codemirror/language-data';
 import { TextLintContext } from '../App';
 
 const CodeEditor = () => {
-	const { code, setCode } = useContext( TextLintContext );
+	const { code, setCode, setLintError } = useContext( TextLintContext );
 
 	const handleOnChange = ( value: string ) => {
 		setCode( value );
+
+		if ( ! value ) {
+			setLintError( [] );
+		}
 	};
 
 	return (
