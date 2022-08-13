@@ -1,0 +1,30 @@
+name: Release GitHub Page
+
+on:
+	push:
+		branches:
+			- main
+
+jobs:
+	deploy:
+		runs-on: ubuntu-latest
+
+		steps:
+			- uses: actions/checkout@v2
+
+			- name: Setup Node
+				uses: actions/setup-node@v2.1.0
+				with:
+					node-version: "14.x"
+
+			- name: install and build
+				run: |
+					npm ci
+					npm run build
+
+			- name: Deploy to github page
+				uses: peaceiris/actions-gh-pages@v3
+				env:
+					ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+					PUBLISH_BRANCH: gh-pages
+					PUBLISH_DIR: ./build
