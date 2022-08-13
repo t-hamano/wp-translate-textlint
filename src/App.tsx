@@ -14,18 +14,14 @@ import CodeEditor from './components/CodeEditor';
 import TextLintError from './components/TextLintError';
 import LintButton from './components/LintButton';
 
-const code = `## Title
-TODO: todo
-WordPress開発環境開発環境開発環境開発環境あAaＢあああWordPressああああ(ああああ)ああああ
-`;
-
 export const TextLintContext = createContext< any >( {
-	code,
+	code: '',
 	lintError: [],
 	setLintError: () => undefined,
 } );
 
 const App = () => {
+	const [ code, setCode ] = useState();
 	const [ lintError, setLintError ] = useState( [] );
 	const theme = createTheme( themeOptions );
 	// const test = createTheme();
@@ -36,7 +32,7 @@ const App = () => {
 			<Box mb={ 6 }>
 				<Header />
 			</Box>
-			<TextLintContext.Provider value={ { code, lintError, setLintError } }>
+			<TextLintContext.Provider value={ { code, setCode, lintError, setLintError } }>
 				<Container maxWidth="xl">
 					<Box display="flex" mb={ 3 } alignItems="flex-start">
 						<Box sx={ { flex: 1 } }>

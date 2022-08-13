@@ -13,13 +13,18 @@ import { languages } from '@codemirror/language-data';
 import { TextLintContext } from '../App';
 
 const CodeEditor = () => {
-	const { code } = useContext( TextLintContext );
+	const { code, setCode } = useContext( TextLintContext );
+
+	const handleOnChange = ( value: string ) => {
+		setCode( value );
+	};
 
 	return (
 		<div className="code-editor">
 			<CodeMirror
 				value={ code }
 				extensions={ [ markdown( { base: markdownLanguage, codeLanguages: languages } ) ] }
+				onChange={ handleOnChange }
 			/>
 		</div>
 	);
