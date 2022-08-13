@@ -25,7 +25,7 @@ const LintButton = () => {
 	};
 
 	return (
-		<Button variant="contained" color="primary" className="lint-button" onClick={ handleOnClick }>
+		<Button variant="contained" color="primary" onClick={ handleOnClick }>
 			翻訳文をチェックする
 		</Button>
 	);
