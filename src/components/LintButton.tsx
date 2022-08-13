@@ -1,5 +1,14 @@
+/**
+ * External dependencies
+ */
+import Button from '@mui/material/Button';
+
 const LintButton = () => {
-	return <button className="lint-button">翻訳文をチェックする</button>;
+	return (
+		<Button variant="contained" color="primary" className="lint-button">
+			翻訳文をチェックする
+		</Button>
+	);
 };
 
 export default LintButton;

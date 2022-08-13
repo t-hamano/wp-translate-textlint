@@ -1,4 +1,6 @@
-import * as React from 'react';
+/**
+ * External dependencies
+ */
 import CodeMirror from '@uiw/react-codemirror';
 
 const CodeEditor = () => {

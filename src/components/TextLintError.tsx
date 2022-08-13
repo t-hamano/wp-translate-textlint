@@ -1,14 +1,17 @@
+/**
+ * External dependencies
+ */
+import { Stack, Alert, Card } from '@mui/material';
+
 const TextLintError = () => {
 	return (
-		<div className="textlint-error">
-			<ul className="textlint-error__list">
-				<li className="textlint-error__item">エラーメッセージが入ります</li>
-				<li className="textlint-error__item">エラーメッセージが入ります</li>
-				<li className="textlint-error__item">エラーメッセージが入ります</li>
-				<li className="textlint-error__item">エラーメッセージが入ります</li>
-				<li className="textlint-error__item">エラーメッセージが入ります</li>
-			</ul>
-		</div>
+		<Stack spacing={ 2 }>
+			{ [ 0, 1, 2, 3, 4, 5 ].map( ( item, index ) => (
+				<Card key={ index }>
+					<Alert severity="error">{ item }エラーメッセージが入ります。</Alert>
+				</Card>
+			) ) }
+		</Stack>
 	);
 };
 
