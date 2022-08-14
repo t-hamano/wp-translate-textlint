@@ -1,9 +1,29 @@
 const webpack = require( 'webpack' );
 const path = require( 'path' );
 const copyWebpackPlugin = require( 'copy-webpack-plugin' );
+const bundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
+
+const mode = process.env.NODE_ENV !== 'production' ? 'development' : 'production';
+const openAnalyzer = !! process.env.ANALIZE;
+
+const plugins = [
+	new copyWebpackPlugin( [
+		{
+			from: 'public',
+			to: '.',
+		},
+	] ),
+	new webpack.DefinePlugin( {
+		'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV ),
+	} ),
+];
+
+if ( openAnalyzer ) {
+	plugins.push( new bundleAnalyzerPlugin() );
+}
 
 module.exports = {
-	mode: 'development',
+	mode,
 	entry: './src/index.tsx',
 	output: {
 		path: path.join( __dirname, 'build' ),
@@ -38,11 +58,9 @@ module.exports = {
 	resolve: {
 		extensions: [ '.ts', '.tsx', '.js', '.json' ],
 	},
-	plugins: [
-		new copyWebpackPlugin( [ { from: 'public', to: '.' } ] ),
-		new webpack.DefinePlugin( {
-			'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV ),
-		} ),
-	],
+	plugins,
 	devtool: 'eval-source-map',
+	performance: {
+		hints: false,
+	},
 };
