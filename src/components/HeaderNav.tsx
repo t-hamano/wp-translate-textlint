@@ -14,7 +14,7 @@ import packageJson from '../../package.json';
 const modalStyle = ( theme: any ) => ( {
 	position: 'absolute',
 	width: '500px',
-	maxWidth: '100%',
+	maxWidth: '95vw',
 	backgroundColor: theme?.palette?.background?.paper,
 	top: `50%`,
 	left: `50%`,
@@ -32,7 +32,11 @@ const HeaderNav = () => {
 
 	return (
 		<>
-			<Stack direction="row" alignItems="center" spacing={ 2 }>
+			<Stack
+				direction={ { xs: 'column', md: 'row' } }
+				alignItems="center"
+				spacing={ { xs: 0, md: 2 } }
+			>
 				<Button color="inherit" onClick={ handleHelpOpen }>
 					HELP
 				</Button>

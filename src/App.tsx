@@ -34,11 +34,11 @@ const App = () => {
 			</Box>
 			<TextLintContext.Provider value={ { code, setCode, lintError, setLintError } }>
 				<Container maxWidth="xl">
-					<Box display="flex" mb={ 6 } alignItems="flex-start">
+					<Box sx={ { display: { xs: 'block', md: 'flex' }, mb: 6 } } alignItems="flex-start">
 						<Box sx={ { flex: 1 } }>
 							<CodeEditor />
 						</Box>
-						<Box sx={ { width: 300, ml: 3 } }>
+						<Box sx={ { width: { md: 300 }, ml: { md: 3 }, mt: { xs: 3, md: 0 } } }>
 							<TextLintError />
 						</Box>
 					</Box>
